@@ -1,8 +1,48 @@
 ---
-title: "pasta_projeto_grupo"
+title: "Análise de Dados Financeiros"
+author: "Luis, Paulo, Cleto"
+date: "`r Sys.Date()`"
 format: html
 ---
 
-This is a Quarto website.
+# 📊 Análise de Ativos Financeiros no Mercado Brasileiro
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Seja bem-vindo(a) à nossa página! Aqui, apresentamos nossa análise sobre os ativos financeiros de algumas das principais empresas brasileiras. Utilizamos metodologias estatísticas e computacionais para explorar tendências e insights valiosos para investidores e analistas do mercado financeiro. 🔥📈
+
+## 👥 Integrantes do Grupo
+Nosso grupo é composto por entusiastas da ciência de dados e do mercado financeiro. Confira abaixo nossas páginas individuais:
+
+- [Luis Almeida](https://luisgralmeida2001.github.io/portfolio/)
+- [Cleto Ribas](https://cletoribas.github.io/portfolio/)
+- Paulo *(em breve... 🚀)*
+
+## 📡 Conjunto de Dados
+
+Para nossa análise, escolhemos um conjunto de dados robusto proveniente de APIs especializadas em dados financeiros, como **Yahoo! Finance**. Os ativos analisados pertencem a grandes empresas do mercado de capitais brasileiro:
+
+✅ **VALE3.SA** - Vale S.A. *(Setor de Mineração)*
+✅ **PETR3.SA** - Petrobras *(Setor de Energia e Petróleo)*
+✅ **WEGE3.SA** - Weg S.A. *(Setor Industrial e Tecnologia)*
+✅ **GGBR4.SA** - Gerdau *(Setor de Siderurgia e Metalurgia)*
+✅ **ITUB4.SA** - Itaú Unibanco *(Setor Bancário e Financeiro)*
+
+Utilizamos bibliotecas como `pandas`, `yfinance`, `matplotlib` e `seaborn` para coletar, processar e visualizar os dados de forma interativa e intuitiva. 💡📊
+
+## 📝 Publicação do Projeto
+
+Nosso primeiro post sobre a análise de dados está disponível! Nele, apresentamos a motivação do projeto, os primeiros passos da análise e algumas previsões interessantes sobre os ativos escolhidos.
+
+📢 **Leia o post completo aqui:** *(em breve... 📄🖊️)*
+
+---
+
+### 🔎 O que esperar deste projeto?
+
+- Análises gráficas e estatísticas sobre a performance dos ativos.
+- Comparação entre diferentes períodos de tempo.
+- Estudo de correlações e tendências de mercado.
+- Predições futuras baseadas em modelos matemáticos.
+
+Fique ligado(a) para mais atualizações! 🚀📉📊
+
+💡 *Dúvidas ou sugestões? Entre em contato!*
