@@ -20,11 +20,11 @@ Nosso grupo é composto por entusiastas da ciência de dados e do mercado financ
 
 Para nossa análise, escolhemos um conjunto de dados robusto proveniente de APIs especializadas em dados financeiros, como **Yahoo! Finance**. Os ativos analisados pertencem a grandes empresas do mercado de capitais brasileiro:
 
-✅ **VALE3.SA** - Vale S.A. *(Setor de Mineração)*
-✅ **PETR3.SA** - Petrobras *(Setor de Energia e Petróleo)*
-✅ **WEGE3.SA** - Weg S.A. *(Setor Industrial e Tecnologia)*
-✅ **GGBR4.SA** - Gerdau *(Setor de Siderurgia e Metalurgia)*
-✅ **ITUB4.SA** - Itaú Unibanco *(Setor Bancário e Financeiro)*
+✅ **VALE3.SA** - Vale S.A. *(Setor de Mineração)* <br>
+✅ **PETR3.SA** - Petrobras *(Setor de Energia e Petróleo)* <br>
+✅ **WEGE3.SA** - Weg S.A. *(Setor Industrial e Tecnologia)* <br>
+✅ **GGBR4.SA** - Gerdau *(Setor de Siderurgia e Metalurgia)* <br>
+✅ **ITUB4.SA** - Itaú Unibanco *(Setor Bancário e Financeiro)* <br>
 
 Utilizamos bibliotecas como `pandas`, `yfinance`, `matplotlib` e `seaborn` para coletar, processar e visualizar os dados de forma interativa e intuitiva. 💡📊
 
