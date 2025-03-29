@@ -32,17 +32,11 @@ Utilizamos bibliotecas como `pandas`, `yfinance`, `matplotlib` e `seaborn` para 
 
 Nosso primeiro post sobre a análise de dados está disponível! Nele, apresentamos a motivação do projeto, os primeiros passos da análise e algumas previsões interessantes sobre os ativos escolhidos.
 
-📢 **Leia o post completo aqui:** *(em breve... 📄🖊️)*
+## 📈 Análise de Log-Retornos
 
----
+Nesta seção, analisamos os log-retornos dos ativos financeiros escolhidos. Para visualizar e executar o código completo, acesse o link abaixo:
 
-### 🔎 O que esperar deste projeto?
+🔗 [Clique aqui para abrir no Google Colab](https://colab.research.google.com/drive/1IIhvRitSLB5HVT3gll2c5G8vyaIwMY0U#scrollTo=ieuo4NmU37q5)
 
-- Análises gráficas e estatísticas sobre a performance dos ativos.
-- Comparação entre diferentes períodos de tempo.
-- Estudo de correlações e tendências de mercado.
-- Predições futuras baseadas em modelos matemáticos.
+Os gráficos e análises são gerados diretamente no Colab, permitindo interação com os dados de forma dinâmica.
 
-Fique ligado(a) para mais atualizações! 🚀📉📊
-
-💡 *Dúvidas ou sugestões? Entre em contato!*
