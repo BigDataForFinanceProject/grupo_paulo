@@ -47,5 +47,208 @@
     "title": "pasta_projeto_grupo",
     "section": "",
     "text": "# Instalar a biblioteca yfinance, caso ainda não esteja instalada\n!pip install yfinance\n\nimport yfinance as yf\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Definir os tickers das ações\ntickers = ['VALE3.SA', 'PETR3.SA', 'WEGE3.SA', 'GGBR4.SA', 'ITUB4.SA', 'BBDC4.SA']\n\n# Baixar dados históricos de preços\ndados = {}\nfor ticker in tickers:\n    dados[ticker] = yf.download(ticker, start='2020-01-01', end='2025-03-21')\n\n# Calcular log-retornos\nlog_retornos = {}\nfor ticker, df in dados.items():\n    df['Log_Returns'] = np.log(df['Close']) - np.log(df['Close'].shift(1))\n    log_retornos[ticker] = df['Log_Returns']\n\n# Plotar histogramas dos log-retornos\ndef plotar_histogramas(log_retornos):\n    for ticker, retornos in log_retornos.items():\n        plt.figure(figsize=(10, 6))\n        plt.hist(retornos.dropna(), bins=50, alpha=0.75, color='blue', edgecolor='black')\n        plt.title(f'Histograma de Log-Retornos para {ticker}')\n        plt.xlabel('Log-Retornos')\n        plt.ylabel('Frequência')\n        plt.grid(True)\n        plt.show()\n\nplotar_histogramas(log_retornos)\n\n# Análise estatística básica\nfor ticker, retornos in log_retornos.items():\n    media = retornos.mean()\n    variancia = retornos.var()\n    print(f\"Análise para {ticker}:\")\n    print(f\"  Média dos log-retornos: {media:.6f}\")\n    print(f\"  Variância dos log-retornos: {variancia:.6f}\\n\")\n\nRequirement already satisfied: yfinance in /usr/local/lib/python3.11/dist-packages (0.2.55)\nRequirement already satisfied: pandas&gt;=1.3.0 in /usr/local/lib/python3.11/dist-packages (from yfinance) (2.2.2)\nRequirement already satisfied: numpy&gt;=1.16.5 in /usr/local/lib/python3.11/dist-packages (from yfinance) (2.0.2)\nRequirement already satisfied: requests&gt;=2.31 in /usr/local/lib/python3.11/dist-packages (from yfinance) (2.32.3)\nRequirement already satisfied: multitasking&gt;=0.0.7 in /usr/local/lib/python3.11/dist-packages (from yfinance) (0.0.11)\nRequirement already satisfied: platformdirs&gt;=2.0.0 in /usr/local/lib/python3.11/dist-packages (from yfinance) (4.3.7)\nRequirement already satisfied: pytz&gt;=2022.5 in /usr/local/lib/python3.11/dist-packages (from yfinance) (2025.1)\nRequirement already satisfied: frozendict&gt;=2.3.4 in /usr/local/lib/python3.11/dist-packages (from yfinance) (2.4.6)\nRequirement already satisfied: peewee&gt;=3.16.2 in /usr/local/lib/python3.11/dist-packages (from yfinance) (3.17.9)\nRequirement already satisfied: beautifulsoup4&gt;=4.11.1 in /usr/local/lib/python3.11/dist-packages (from yfinance) (4.13.3)\nRequirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.11/dist-packages (from beautifulsoup4&gt;=4.11.1-&gt;yfinance) (2.6)\nRequirement already satisfied: typing-extensions&gt;=4.0.0 in /usr/local/lib/python3.11/dist-packages (from beautifulsoup4&gt;=4.11.1-&gt;yfinance) (4.12.2)\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in /usr/local/lib/python3.11/dist-packages (from pandas&gt;=1.3.0-&gt;yfinance) (2.8.2)\nRequirement already satisfied: tzdata&gt;=2022.7 in /usr/local/lib/python3.11/dist-packages (from pandas&gt;=1.3.0-&gt;yfinance) (2025.1)\nRequirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /usr/local/lib/python3.11/dist-packages (from requests&gt;=2.31-&gt;yfinance) (3.4.1)\nRequirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.11/dist-packages (from requests&gt;=2.31-&gt;yfinance) (3.10)\nRequirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /usr/local/lib/python3.11/dist-packages (from requests&gt;=2.31-&gt;yfinance) (2.3.0)\nRequirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.11/dist-packages (from requests&gt;=2.31-&gt;yfinance) (2025.1.31)\nRequirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas&gt;=1.3.0-&gt;yfinance) (1.17.0)\nYF.download() has changed argument auto_adjust default to True\n\n\n[*********************100%***********************]  1 of 1 completed\n[*********************100%***********************]  1 of 1 completed\n[*********************100%***********************]  1 of 1 completed\n[*********************100%***********************]  1 of 1 completed\n[*********************100%***********************]  1 of 1 completed\n[*********************100%***********************]  1 of 1 completed\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnálise para VALE3.SA:\n  Média dos log-retornos: 0.000413\n  Variância dos log-retornos: 0.000538\n\nAnálise para PETR3.SA:\n  Média dos log-retornos: 0.001016\n  Variância dos log-retornos: 0.000865\n\nAnálise para WEGE3.SA:\n  Média dos log-retornos: 0.000831\n  Variância dos log-retornos: 0.000573\n\nAnálise para GGBR4.SA:\n  Média dos log-retornos: 0.000320\n  Variância dos log-retornos: 0.000695\n\nAnálise para ITUB4.SA:\n  Média dos log-retornos: 0.000162\n  Variância dos log-retornos: 0.000405\n\nAnálise para BBDC4.SA:\n  Média dos log-retornos: -0.000419\n  Variância dos log-retornos: 0.000550\n\n\n\n\n# prompt: plote um grafico de valorizaçao das açoes, usando o retorno percentual, ou seja normalizando todos os ativos iniciando a como se fosse valendo 1 para que as linhas nos graficos fiquem na mesma escala\n\nimport yfinance as yf\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# ... (código anterior permanece inalterado)\n\n# Calcular o retorno percentual normalizado\nretornos_normalizados = {}\nfor ticker, df in dados.items():\n    df['Retorno_Normalizado'] = df['Close'] / df['Close'].iloc[0]\n    retornos_normalizados[ticker] = df['Retorno_Normalizado']\n\n# Plotar o gráfico de valorização das ações\nplt.figure(figsize=(12, 6))\nfor ticker, retornos in retornos_normalizados.items():\n    plt.plot(retornos.index, retornos, label=ticker)\n\nplt.title('Valorização das Ações (Normalizada)')\nplt.xlabel('Data')\nplt.ylabel('Retorno Normalizado')\nplt.legend()\nplt.grid(True)\nplt.show()\n\n\n\n\n\n\n\n\n\n# prompt: mostre a valorizaçao numa tabela em percentual de cada ativo\n\nimport pandas as pd\n\n# ... (código anterior permanece inalterado)\n\n\n# Criar um DataFrame para a tabela de valorização\nvalorizacao = pd.DataFrame()\n\nfor ticker, df in dados.items():\n    valorizacao[ticker] = df['Close']\n\n# Calcular a variação percentual em relação ao primeiro dia\nvalorizacao_percentual = valorizacao / valorizacao.iloc[0] * 100\n\n# Mostrar a tabela de valorização percentual\nvalorizacao_percentual\n\n\n  \n    \n\n\n\n\n\n\nVALE3.SA\nPETR3.SA\nWEGE3.SA\nGGBR4.SA\nITUB4.SA\nBBDC4.SA\n\n\nDate\n\n\n\n\n\n\n\n\n\n\n2020-01-02\n100.000000\n100.000000\n100.000000\n100.000000\n100.000000\n100.000000\n\n\n2020-01-03\n99.263762\n97.530476\n98.723020\n98.362234\n98.948199\n100.050615\n\n\n2020-01-06\n98.674778\n100.701197\n98.978465\n98.121378\n97.475722\n98.263517\n\n\n2020-01-07\n99.392621\n99.329262\n99.744637\n99.662804\n95.214354\n96.556476\n\n\n2020-01-08\n99.411028\n97.713420\n95.970527\n100.048170\n93.662916\n95.062762\n\n\n...\n...\n...\n...\n...\n...\n...\n\n\n2025-03-14\n167.973045\n361.238805\n286.567744\n148.904327\n119.903240\n57.032125\n\n\n2025-03-17\n170.390131\n369.609081\n292.147055\n151.369928\n123.502789\n57.878440\n\n\n2025-03-18\n171.643444\n369.891250\n292.147055\n151.546029\n124.166777\n57.831422\n\n\n2025-03-19\n171.345031\n371.678151\n295.151274\n151.810206\n124.474318\n58.348612\n\n\n2025-03-20\n170.807910\n373.371020\n293.679820\n151.457987\n123.321069\n58.066510\n\n\n\n\n1298 rows × 6 columns\n\n    \n\n  \n    \n\n  \n    \n  \n    \n\n  \n\n    \n  \n\n\n\n  \n\n\n    \n        \n    \n\n  \n\n\n\n  \n\n\n  \n    \n    \n\n  \n    \n  \n    \n    \n  \n\n    \n  \n\n\n\n# prompt: agora analise qual seria meu retorno percentual se eu tivesse uma carteira composta por esses ativos com pesos iguais e gere. um grafico\n\nimport matplotlib.pyplot as plt\nimport numpy as np\n# ... (código anterior permanece inalterado)\n\n# Calcular o retorno da carteira com pesos iguais\npesos = np.array([1/len(tickers)] * len(tickers))  # Pesos iguais para todos os ativos\ncarteira_retornos = np.sum(valorizacao_percentual.pct_change() * pesos, axis=1)\ncarteira_valorizacao = (1 + carteira_retornos.fillna(0)).cumprod() * 100 # Ajustando a valorização da carteira\n\n\n# Plotar o gráfico de valorização da carteira\nplt.figure(figsize=(12, 6))\nplt.plot(carteira_valorizacao.index, carteira_valorizacao, label='Carteira')\nplt.title('Valorização da Carteira (com pesos iguais)')\nplt.xlabel('Data')\nplt.ylabel('Retorno (%)')\nplt.legend()\nplt.grid(True)\nplt.show()\n\n# Calcular o retorno total da carteira\nretorno_total_carteira = (carteira_valorizacao[-1] / carteira_valorizacao[0]) -1\n\n\nprint(f\"Retorno total da carteira: {retorno_total_carteira:.2f}%\")\n\n\n\n\n\n\n\n\nRetorno total da carteira: 0.98%\n\n\nFutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`\n  retorno_total_carteira = (carteira_valorizacao[-1] / carteira_valorizacao[0]) -1\n\n\n\n# prompt: agora analise qual seria meu retorno percentual se eu tivesse uma carteira composta por esses ativos poorem cada ativo tera seu peso de acordo com seu peso nno ibovespa\n\nimport matplotlib.pyplot as plt\nimport numpy as np\n# ... (código anterior permanece inalterado)\n\n# Obter os pesos do Ibovespa (substitua pelo método correto para obter os pesos reais)\n# Neste exemplo, estou usando pesos aleatórios para demonstração.\n# Você precisa substituir esta parte pelo código que obtém os pesos reais do Ibovespa.\npesos_ibovespa = np.random.rand(len(tickers))\npesos_ibovespa = pesos_ibovespa / np.sum(pesos_ibovespa) # Normalizar os pesos para soma 1\n\nprint(\"Pesos do Ibovespa (exemplo - substitua por dados reais):\")\nfor i in range(len(tickers)):\n    print(f\"{tickers[i]}: {pesos_ibovespa[i]:.4f}\")\n\n\n# Calcular o retorno da carteira com os pesos do Ibovespa\ncarteira_retornos_ibovespa = np.sum(valorizacao_percentual.pct_change() * pesos_ibovespa, axis=1)\ncarteira_valorizacao_ibovespa = (1 + carteira_retornos_ibovespa.fillna(0)).cumprod() * 100\n\n# Plotar o gráfico de valorização da carteira com pesos do Ibovespa\nplt.figure(figsize=(12, 6))\nplt.plot(carteira_valorizacao_ibovespa.index, carteira_valorizacao_ibovespa, label='Carteira (Pesos Ibovespa)')\nplt.title('Valorização da Carteira (com pesos do Ibovespa)')\nplt.xlabel('Data')\nplt.ylabel('Retorno (%)')\nplt.legend()\nplt.grid(True)\nplt.show()\n\n# Calcular o retorno total da carteira com pesos do Ibovespa\nretorno_total_carteira_ibovespa = (carteira_valorizacao_ibovespa[-1] / carteira_valorizacao_ibovespa[0]) - 1\n\nprint(f\"Retorno total da carteira (pesos Ibovespa): {retorno_total_carteira_ibovespa:.2f}%\")\n\nPesos do Ibovespa (exemplo - substitua por dados reais):\nVALE3.SA: 0.2308\nPETR3.SA: 0.0553\nWEGE3.SA: 0.2066\nGGBR4.SA: 0.0317\nITUB4.SA: 0.1668\nBBDC4.SA: 0.3088\n\n\n\n\n\n\n\n\n\nRetorno total da carteira (pesos Ibovespa): 0.59%\n\n\nFutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`\n  retorno_total_carteira_ibovespa = (carteira_valorizacao_ibovespa[-1] / carteira_valorizacao_ibovespa[0]) - 1\n\n\n\n# prompt: agora, usando os pesos iguais para cada ativo, porém faça o rebbalanceamennto da carteira para retornnarmos ao peso inicial ao final de cada mes\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport numpy as np\n# ... (código anterior permanece inalterado)\n\n# Rebalanceamento mensal da carteira com pesos iguais\ncarteira_valorizacao_rebalanceada = pd.Series(100, index=carteira_valorizacao.index) # Inicializa com 100\npesos_iniciais = np.array([1/len(tickers)] * len(tickers))\ninvestimentos_iniciais = 100 * pesos_iniciais\n\nfor i in range(1, len(valorizacao_percentual)):\n    if valorizacao_percentual.index[i].month != valorizacao_percentual.index[i-1].month:  # Verificar se é um novo mês\n      # Calcula a valorização atual de cada ativo\n      valorizacao_atual = valorizacao_percentual.iloc[i] * investimentos_iniciais\n      valor_total_carteira = valorizacao_atual.sum()\n\n      # Recalcula os investimentos para cada ativo para retornar aos pesos iniciais\n      investimentos_iniciais = valor_total_carteira * pesos_iniciais\n\n    carteira_valorizacao_rebalanceada.iloc[i] = valorizacao_percentual.iloc[i].values.dot(pesos_iniciais)\n\n\n# Plotar o gráfico de valorização da carteira rebalanceada\nplt.figure(figsize=(12, 6))\nplt.plot(carteira_valorizacao_rebalanceada.index, carteira_valorizacao_rebalanceada, label='Carteira Rebalanceada')\nplt.title('Valorização da Carteira (Rebalanceamento Mensal)')\nplt.xlabel('Data')\nplt.ylabel('Retorno (%)')\nplt.legend()\nplt.grid(True)\nplt.show()\n\n\n# Calcular o retorno total da carteira rebalanceada\nretorno_total_carteira_rebalanceada = (carteira_valorizacao_rebalanceada[-1] / carteira_valorizacao_rebalanceada[0]) - 1\n\nprint(f\"Retorno total da carteira rebalanceada: {retorno_total_carteira_rebalanceada:.2f}%\")\n\nFutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '98.81305101730302' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.\n  carteira_valorizacao_rebalanceada.iloc[i] = valorizacao_percentual.iloc[i].values.dot(pesos_iniciais)\n\n\n\n\n\n\n\n\n\nRetorno total da carteira rebalanceada: 0.95%\n\n\nFutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`\n  retorno_total_carteira_rebalanceada = (carteira_valorizacao_rebalanceada[-1] / carteira_valorizacao_rebalanceada[0]) - 1\n\n\n\n# prompt: agora, usando os mesmos pesos que voce usou no exemplo, porém faça o rebbalanceamennto para retornnarmos ao peso do exemplo ao final de cada mes\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport numpy as np\n# ... (código anterior permanece inalterado)\n\n# Obter os pesos do Ibovespa (substitua pelo método correto para obter os pesos reais)\n# Neste exemplo, estou usando pesos fixos para demonstração.\npesos_ibovespa = np.array([0.2, 0.15, 0.15, 0.10, 0.20, 0.20]) # Exemplo de pesos fixos\nprint(\"Pesos do Ibovespa (fixos - substitua por dados reais se necessário):\")\nfor i in range(len(tickers)):\n    print(f\"{tickers[i]}: {pesos_ibovespa[i]:.4f}\")\n\n# Rebalanceamento mensal\ncarteira_valorizacao_ibovespa = pd.Series(100, index=valorizacao_percentual.index) # Inicializa a série com 100\ncarteira_valor_inicial = 100\n\n\nfor i in range(1, len(valorizacao_percentual)):\n    # Verificar se é o primeiro dia do mês\n    if valorizacao_percentual.index[i].day == 1:  # Ajustar para o primeiro dia do mês\n       # Calcular a valorização atual da carteira\n        valor_atual_carteira = carteira_valorizacao_ibovespa.iloc[i-1]\n        valor_atual_ativos = valor_atual_carteira * pesos_ibovespa\n        # Rebalanceia para os pesos originais do Ibovespa\n        carteira_valorizacao_ibovespa.iloc[i] = valor_atual_carteira\n    else:\n        carteira_retornos_ibovespa = np.sum(valorizacao_percentual.iloc[i] / valorizacao_percentual.iloc[i-1] * pesos_ibovespa ) - 1\n        carteira_valorizacao_ibovespa.iloc[i] = carteira_valorizacao_ibovespa.iloc[i-1] * (1 + carteira_retornos_ibovespa)\n\n# Plotar o gráfico de valorização da carteira com pesos do Ibovespa e rebalanceamento\nplt.figure(figsize=(12, 6))\nplt.plot(carteira_valorizacao_ibovespa.index, carteira_valorizacao_ibovespa, label='Carteira (Pesos Ibovespa - Rebalanceada)')\nplt.title('Valorização da Carteira (com pesos do Ibovespa e Rebalanceamento Mensal)')\nplt.xlabel('Data')\nplt.ylabel('Retorno (%)')\nplt.legend()\nplt.grid(True)\nplt.show()\n\n# Calcular o retorno total da carteira com pesos do Ibovespa e rebalanceamento\nretorno_total_carteira_ibovespa = (carteira_valorizacao_ibovespa[-1] / carteira_valorizacao_ibovespa[0]) - 1\nprint(f\"Retorno total da carteira (pesos Ibovespa - Rebalanceada): {retorno_total_carteira_ibovespa:.2f}%\")\n\nPesos do Ibovespa (fixos - substitua por dados reais se necessário):\nVALE3.SA: 0.2000\nPETR3.SA: 0.1500\nWEGE3.SA: 0.1500\nGGBR4.SA: 0.1000\nITUB4.SA: 0.2000\nBBDC4.SA: 0.2000\n\n\nFutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '98.92676299853862' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.\n  carteira_valorizacao_ibovespa.iloc[i] = carteira_valorizacao_ibovespa.iloc[i-1] * (1 + carteira_retornos_ibovespa)\n\n\n\n\n\n\n\n\n\nRetorno total da carteira (pesos Ibovespa - Rebalanceada): 0.54%\n\n\nFutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`\n  retorno_total_carteira_ibovespa = (carteira_valorizacao_ibovespa[-1] / carteira_valorizacao_ibovespa[0]) - 1"
+  },
+  {
+    "objectID": "index3.html#hello-there",
+    "href": "index3.html#hello-there",
+    "title": "Quarto Presentations",
+    "section": "Hello, There",
+    "text": "Hello, There\nThis presentation will show you examples of what you can do with Quarto and Reveal.js, including:\n\nPresenting code and LaTeX equations\nIncluding computations in slide output\nImage, video, and iframe backgrounds\nFancy transitions and animations\nActivating scroll view\n\n…and much more"
+  },
+  {
+    "objectID": "index3.html#pretty-code",
+    "href": "index3.html#pretty-code",
+    "title": "Quarto Presentations",
+    "section": "Pretty Code",
+    "text": "Pretty Code\n\nOver 20 syntax highlighting themes available\nDefault theme optimized for accessibility\n\n\n# Define a server for the Shiny app\nfunction(input, output) {\n  \n  # Fill in the spot we created for a plot\n  output$phonePlot &lt;- renderPlot({\n    # Render a barplot\n  })\n}\n\n\nLearn more: Syntax Highlighting"
+  },
+  {
+    "objectID": "index3.html#code-animations",
+    "href": "index3.html#code-animations",
+    "title": "Quarto Presentations",
+    "section": "Code Animations",
+    "text": "Code Animations\n\nOver 20 syntax highlighting themes available\nDefault theme optimized for accessibility\n\n# Define a server for the Shiny app\nfunction(input, output) {\n  \n  # Fill in the spot we created for a plot\n  output$phonePlot &lt;- renderPlot({\n    # Render a barplot\n    barplot(WorldPhones[,input$region]*1000, \n            main=input$region,\n            ylab=\"Number of Telephones\",\n            xlab=\"Year\")\n  })\n}\n\nLearn more: Code Animations"
+  },
+  {
+    "objectID": "index3.html#line-highlighting",
+    "href": "index3.html#line-highlighting",
+    "title": "Quarto Presentations",
+    "section": "Line Highlighting",
+    "text": "Line Highlighting\n\nHighlight specific lines for emphasis\nIncrementally highlight additional lines\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(subplot_kw={'projection': 'polar'})\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\nLearn more: Line Highlighting"
+  },
+  {
+    "objectID": "index3.html#executable-code",
+    "href": "index3.html#executable-code",
+    "title": "Quarto Presentations",
+    "section": "Executable Code",
+    "text": "Executable Code\n\nlibrary(ggplot2)\nggplot(mtcars, aes(hp, mpg, color = am)) +\n  geom_point() +\n  geom_smooth(formula = y ~ x, method = \"loess\")\n\n\n\nLearn more: Executable Code"
+  },
+  {
+    "objectID": "index3.html#latex-equations",
+    "href": "index3.html#latex-equations",
+    "title": "Quarto Presentations",
+    "section": "LaTeX Equations",
+    "text": "LaTeX Equations\nMathJax rendering of equations to HTML\n\n\n\\begin{gather*}\na_1=b_1+c_1\\\\\na_2=b_2+c_2-d_2+e_2\n\\end{gather*}\n\n\\begin{align}\na_{11}& =b_{11}&\n  a_{12}& =b_{12}\\\\\na_{21}& =b_{21}&\n  a_{22}& =b_{22}+c_{22}\n\\end{align}\n\n\\[\\begin{gather*}\na_1=b_1+c_1\\\\\na_2=b_2+c_2-d_2+e_2\n\\end{gather*}\\]\n\\[\\begin{align}\na_{11}& =b_{11}&\n  a_{12}& =b_{12}\\\\\na_{21}& =b_{21}&\n  a_{22}& =b_{22}+c_{22}\n\\end{align}\\]\n\n\nLearn more: LaTeX Equations"
+  },
+  {
+    "objectID": "index3.html#column-layout",
+    "href": "index3.html#column-layout",
+    "title": "Quarto Presentations",
+    "section": "Column Layout",
+    "text": "Column Layout\nArrange content into columns of varying widths:\n\n\nMotor Trend Car Road Tests\nThe data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles.\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\nwt\n\n\n\n\nMazda RX4\n21.0\n6\n160\n110\n2.620\n\n\nMazda RX4 Wag\n21.0\n6\n160\n110\n2.875\n\n\nDatsun 710\n22.8\n4\n108\n93\n2.320\n\n\nHornet 4 Drive\n21.4\n6\n258\n110\n3.215\n\n\nHornet Sportabout\n18.7\n8\n360\n175\n3.440\n\n\nValiant\n18.1\n6\n225\n105\n3.460\n\n\n\n\n\n\n\nLearn more: Multiple Columns"
+  },
+  {
+    "objectID": "index3.html#incremental-lists",
+    "href": "index3.html#incremental-lists",
+    "title": "Quarto Presentations",
+    "section": "Incremental Lists",
+    "text": "Incremental Lists\nLists can optionally be displayed incrementally:\n\n\nFirst item\nSecond item\nThird item\n\n\n\n Insert pauses to make other types of content display incrementally.\n\nLearn more: Incremental Lists"
+  },
+  {
+    "objectID": "index3.html#fragments",
+    "href": "index3.html#fragments",
+    "title": "Quarto Presentations",
+    "section": "Fragments",
+    "text": "Fragments\nIncremental text display and animation with fragments:\n\n\nFade in\n\n\nSlide up while fading in\n\n\nSlide left while fading in\n\n\nFade in then semi out\n\n\n\nStrike\n\n\nHighlight red\n\n\nLearn more: Fragments"
+  },
+  {
+    "objectID": "index3.html#slide-backgrounds",
+    "href": "index3.html#slide-backgrounds",
+    "title": "Quarto Presentations",
+    "section": "Slide Backgrounds",
+    "text": "Slide Backgrounds\nSet the background attribute on a slide to change the background color (all CSS color formats are supported).\nDifferent background transitions are available via the background-transition option.\n\nLearn more: Slide Backgrounds"
+  },
+  {
+    "objectID": "index3.html#media-backgrounds",
+    "href": "index3.html#media-backgrounds",
+    "title": "Quarto Presentations",
+    "section": "Media Backgrounds",
+    "text": "Media Backgrounds\nYou can also use the following as a slide background:\n\nAn image: background-image\nA video: background-video\nAn iframe: background-iframe\n\n\nLearn more: Media Backgrounds"
+  },
+  {
+    "objectID": "index3.html#absolute-position",
+    "href": "index3.html#absolute-position",
+    "title": "Quarto Presentations",
+    "section": "Absolute Position",
+    "text": "Absolute Position\nPosition images or other elements at precise locations\n\n\n\n\nLearn more: Absolute Position"
+  },
+  {
+    "objectID": "index3.html#auto-animate",
+    "href": "index3.html#auto-animate",
+    "title": "Quarto Presentations",
+    "section": "Auto-Animate",
+    "text": "Auto-Animate\nAutomatically animate matching elements across slides with Auto-Animate.\n\n\n\n\n\n\n\n\n\n\n\n\nLearn more: Auto-Animate"
+  },
+  {
+    "objectID": "index3.html#auto-animate-1",
+    "href": "index3.html#auto-animate-1",
+    "title": "Quarto Presentations",
+    "section": "Auto-Animate",
+    "text": "Auto-Animate\nAutomatically animate matching elements across slides with Auto-Animate.\n\n\n\n\n\n\n\n\n\n\n\n\nLearn more: Auto-Animate"
+  },
+  {
+    "objectID": "index3.html#slide-transitions",
+    "href": "index3.html#slide-transitions",
+    "title": "Quarto Presentations",
+    "section": "Slide Transitions",
+    "text": "Slide Transitions\nThe next few slides will transition using the slide transition\n\n\n\n\n\n\n\nTransition\nDescription\n\n\n\n\nnone\nNo transition (default, switch instantly)\n\n\nfade\nCross fade\n\n\nslide\nSlide horizontally\n\n\nconvex\nSlide at a convex angle\n\n\nconcave\nSlide at a concave angle\n\n\nzoom\nScale the incoming slide so it grows in from the center of the screen.\n\n\n\n\nLearn more: Slide Transitions"
+  },
+  {
+    "objectID": "index3.html#tabsets",
+    "href": "index3.html#tabsets",
+    "title": "Quarto Presentations",
+    "section": "Tabsets",
+    "text": "Tabsets\n\nPlotData\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\nMazda RX4\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\nMazda RX4 Wag\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\nDatsun 710\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\nHornet 4 Drive\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\nHornet Sportabout\n18.7\n8\n360.0\n175\n3.15\n3.440\n17.02\n0\n0\n3\n2\n\n\nValiant\n18.1\n6\n225.0\n105\n2.76\n3.460\n20.22\n1\n0\n3\n1\n\n\nDuster 360\n14.3\n8\n360.0\n245\n3.21\n3.570\n15.84\n0\n0\n3\n4\n\n\nMerc 240D\n24.4\n4\n146.7\n62\n3.69\n3.190\n20.00\n1\n0\n4\n2\n\n\nMerc 230\n22.8\n4\n140.8\n95\n3.92\n3.150\n22.90\n1\n0\n4\n2\n\n\nMerc 280\n19.2\n6\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n\n\nMerc 280C\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\nMerc 450SE\n16.4\n8\n275.8\n180\n3.07\n4.070\n17.40\n0\n0\n3\n3\n\n\nMerc 450SL\n17.3\n8\n275.8\n180\n3.07\n3.730\n17.60\n0\n0\n3\n3\n\n\nMerc 450SLC\n15.2\n8\n275.8\n180\n3.07\n3.780\n18.00\n0\n0\n3\n3\n\n\nCadillac Fleetwood\n10.4\n8\n472.0\n205\n2.93\n5.250\n17.98\n0\n0\n3\n4\n\n\nLincoln Continental\n10.4\n8\n460.0\n215\n3.00\n5.424\n17.82\n0\n0\n3\n4\n\n\nChrysler Imperial\n14.7\n8\n440.0\n230\n3.23\n5.345\n17.42\n0\n0\n3\n4\n\n\nFiat 128\n32.4\n4\n78.7\n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n\n\nHonda Civic\n30.4\n4\n75.7\n52\n4.93\n1.615\n18.52\n1\n1\n4\n2\n\n\nToyota Corolla\n33.9\n4\n71.1\n65\n4.22\n1.835\n19.90\n1\n1\n4\n1\n\n\nToyota Corona\n21.5\n4\n120.1\n97\n3.70\n2.465\n20.01\n1\n0\n3\n1\n\n\nDodge Challenger\n15.5\n8\n318.0\n150\n2.76\n3.520\n16.87\n0\n0\n3\n2\n\n\nAMC Javelin\n15.2\n8\n304.0\n150\n3.15\n3.435\n17.30\n0\n0\n3\n2\n\n\nCamaro Z28\n13.3\n8\n350.0\n245\n3.73\n3.840\n15.41\n0\n0\n3\n4\n\n\nPontiac Firebird\n19.2\n8\n400.0\n175\n3.08\n3.845\n17.05\n0\n0\n3\n2\n\n\nFiat X1-9\n27.3\n4\n79.0\n66\n4.08\n1.935\n18.90\n1\n1\n4\n1\n\n\nPorsche 914-2\n26.0\n4\n120.3\n91\n4.43\n2.140\n16.70\n0\n1\n5\n2\n\n\nLotus Europa\n30.4\n4\n95.1\n113\n3.77\n1.513\n16.90\n1\n1\n5\n2\n\n\nFord Pantera L\n15.8\n8\n351.0\n264\n4.22\n3.170\n14.50\n0\n1\n5\n4\n\n\nFerrari Dino\n19.7\n6\n145.0\n175\n3.62\n2.770\n15.50\n0\n1\n5\n6\n\n\nMaserati Bora\n15.0\n8\n301.0\n335\n3.54\n3.570\n14.60\n0\n1\n5\n8\n\n\nVolvo 142E\n21.4\n4\n121.0\n109\n4.11\n2.780\n18.60\n1\n1\n4\n2\n\n\n\n\n\n\n\n\n\nLearn more: Tabsets"
+  },
+  {
+    "objectID": "index3.html#interactive-slides",
+    "href": "index3.html#interactive-slides",
+    "title": "Quarto Presentations",
+    "section": "Interactive Slides",
+    "text": "Interactive Slides\nInclude Jupyter widgets and htmlwidgets in your presentations\n\n\n\n\n\n\n\nLearn more: Jupyter widgets, htmlwidgets"
+  },
+  {
+    "objectID": "index3.html#interactive-slides-1",
+    "href": "index3.html#interactive-slides-1",
+    "title": "Quarto Presentations",
+    "section": "Interactive Slides",
+    "text": "Interactive Slides\nTurn presentations into applications with Observable and Shiny. Use component layout to position inputs and outputs.\n\n\nviewof talentWeight = Inputs.range([-2, 2], { value: 0.7, step: 0.01, label: \"talent weight\" })\nviewof looksWeight = Inputs.range([-2, 2], { value: 0.7, step: 0.01, label: \"looks weight\" })\nviewof minimum = Inputs.range([-2, 2], { value: 1, step: 0.01, label: \"min fame\" })\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nimport { plotActors } from './actors.js';\nplotActors(actors, talentWeight, looksWeight, minimum)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLearn more: Observable, Shiny, Component Layout"
+  },
+  {
+    "objectID": "index3.html#preview-links",
+    "href": "index3.html#preview-links",
+    "title": "Quarto Presentations",
+    "section": "Preview Links",
+    "text": "Preview Links\nNavigate to hyperlinks without disrupting the flow of your presentation.\nUse the preview-links option to open links in an iframe on top of your slides. Try clicking the link below for a demonstration:\n\nMatplotlib: Visualization with Python\n\n\nLearn more: Preview Links"
+  },
+  {
+    "objectID": "index3.html#themes",
+    "href": "index3.html#themes",
+    "title": "Quarto Presentations",
+    "section": "Themes",
+    "text": "Themes\n10 Built-in Themes (or create your own)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLearn more: Themes"
+  },
+  {
+    "objectID": "index3.html#easy-navigation",
+    "href": "index3.html#easy-navigation",
+    "title": "Quarto Presentations",
+    "section": "Easy Navigation",
+    "text": "Easy Navigation\n\nQuickly jump to other parts of your presentation\n\n\n\n\n\n\n\n\n\n\nToggle the slide menu with the menu button (bottom left of slide) to go to other slides and access presentation tools.\n\n\n\nYou can also press mm to toggle the menu open and closed.\nYou can also press gg to toggle ‘Jump To Slide’ modal box to quickly go to one of your slide using its number or id.\n\nLearn more: Navigation / Jump To Slide"
+  },
+  {
+    "objectID": "index3.html#jump-to-slide",
+    "href": "index3.html#jump-to-slide",
+    "title": "Quarto Presentations",
+    "section": "Jump To Slide",
+    "text": "Jump To Slide\n\nQuickly jump to other parts of your presentation"
+  },
+  {
+    "objectID": "index3.html#chalkboard",
+    "href": "index3.html#chalkboard",
+    "title": "Quarto Presentations",
+    "section": "Chalkboard",
+    "text": "Chalkboard\n\nFree form drawing and slide annotations\n\n\n\n\n\n\n\n\n\n\nUse the chalkboard button at the bottom left of the slide to toggle the chalkboard.\n\n\n\n\n\n\n\n\n\n\n\n\nUse the notes canvas button at the bottom left of the slide to toggle drawing on top of the current slide.\n\n\n\nYou can also press bb to toggle the chalkboard or cc to toggle the notes canvas.\n\nLearn more: Chalkboard"
+  },
+  {
+    "objectID": "index3.html#point-of-view",
+    "href": "index3.html#point-of-view",
+    "title": "Quarto Presentations",
+    "section": "Point of View",
+    "text": "Point of View\npress oo to toggle overview mode:\n\nHold down the AltAlt and click on any element to zoom towards it—try it now on this slide.\n\nLearn more: Overview Mode, Slide Zoom"
+  },
+  {
+    "objectID": "index3.html#speaker-view",
+    "href": "index3.html#speaker-view",
+    "title": "Quarto Presentations",
+    "section": "Speaker View",
+    "text": "Speaker View\npress ss (or use the tools in presentation menu ) to open speaker view\n\n\n\n\n\n\nLearn more: Speaker View"
+  },
+  {
+    "objectID": "index3.html#scroll-view",
+    "href": "index3.html#scroll-view",
+    "title": "Quarto Presentations",
+    "section": "Scroll View",
+    "text": "Scroll View\nPress rr (or use the tools in presentation menu ) to open scroll view\nTry it now on this slide — You’ll see a scroll bar on the right and you can scroll down the presentation using your mouse.\nScroll view behavior can be configured using scroll-view configuration.\n\nLearn more: Scroll View"
+  },
+  {
+    "objectID": "index3.html#authoring-tools",
+    "href": "index3.html#authoring-tools",
+    "title": "Quarto Presentations",
+    "section": "Authoring Tools",
+    "text": "Authoring Tools\nLive side-by-side preview for any notebook or text editor including Jupyter and VS Code\n\n\n\n\n\n\n\nLearn more: Jupyter, VS Code, Text Editors"
+  },
+  {
+    "objectID": "index3.html#authoring-tools-1",
+    "href": "index3.html#authoring-tools-1",
+    "title": "Quarto Presentations",
+    "section": "Authoring Tools",
+    "text": "Authoring Tools\nRStudio includes an integrated presentation preview pane\n\n\nLearn more: RStudio"
+  },
+  {
+    "objectID": "index3.html#and-more",
+    "href": "index3.html#and-more",
+    "title": "Quarto Presentations",
+    "section": "And More…",
+    "text": "And More…\n\nTouch optimized (presentations look great on mobile, swipe to navigate slides)\nFooter & Logo (optionally specify custom footer per-slide or hide global footer)\nAuto-Slide (step through slides automatically, without any user input)\nMultiplex (allows your audience to follow the slides of the presentation you are controlling on their own phone, tablet or laptop).\n\n\nLearn more: Quarto Presentations"
   }
 ]
