@@ -494,7 +494,7 @@
     "href": "about.html#valorização-normalizada",
     "title": "📊 Análise Financeira com Dados Históricos",
     "section": "Valorização Normalizada",
-    "text": "Valorização Normalizada\n\nMetodologia - Ativos iniciam com valor 1.\nVisualização - Gráfico de linha.\nObjetivo - Comparar performance relativa.\n\nimport yfinance as yf\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# ... (código anterior permanece inalterado)\n\n# Calcular o retorno percentual normalizado\nretornos_normalizados = {}\nfor ticker, df in dados.items():\n    # Skip calculation if DataFrame is empty to avoid the error\n    if df.empty:\n        continue\n    df['Retorno_Normalizado'] = df['Close'] / df['Close'].iloc[0]  # Accessing element at index 0 for division\n    retornos_normalizados[ticker] = df['Retorno_Normalizado']"
+    "text": "Valorização Normalizada\n\nMetodologia - Ativos iniciam com valor 1.\nVisualização - Gráfico de linha.\nObjetivo - Comparar performance relativa.\n\nimport yfinance as yf\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# ... (código anterior permanece inalterado)\n\n# Calcular o retorno percentual normalizado\nretornos_normalizados = {}\nfor ticker, df in dados.items():\n    # Condicional anti erro\n    if df.empty:\n        continue\n    df['Retorno_Normalizado'] = df['Close'] / df['Close'].iloc[0]\n    retornos_normalizados[ticker] = df['Retorno_Normalizado']"
   },
   {
     "objectID": "about.html#carteira-com-pesos-iguais",
