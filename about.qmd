@@ -216,9 +216,8 @@ for ticker, df in dados.items():
 
 - Composição - Pesos simulados (replicar índice).
 - Cálculo - Valorização similar à anterior.
-
 <div style="display: flex; justify-content: center;">
-  <img src="index3_files/figure-revealjs/normalizada3.png" style="width: 85%; max-width: 1000px;" />
+  <img src="index3_files/figure-revealjs/normalizada3.png" style="width: 80%; max-width: 1000px;" />
 </div>
 
 
