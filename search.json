@@ -494,7 +494,7 @@
     "href": "about.html#valorização-normalizada",
     "title": "📊 Análise Financeira com Dados Históricos",
     "section": "Valorização Normalizada",
-    "text": "Valorização Normalizada\n\nMetodologia - Ativos iniciam com valor 1.\nVisualização - Gráfico de linha.\nObjetivo - Comparar performance relativa.\n\nimport yfinance as yf\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# ... (código anterior permanece inalterado)\n\n# Calcular o retorno percentual normalizado\nretornos_normalizados = {}\nfor ticker, df in dados.items():\n    # Condicional anti erro\n    if df.empty:\n        continue\n    df['Retorno_Normalizado'] = df['Close'] / df['Close'].iloc[0]\n    retornos_normalizados[ticker] = df['Retorno_Normalizado']"
+    "text": "Valorização Normalizada\n\nMetodologia - Ativos iniciam com valor 1.\nVisualização - Gráfico de linha.\nObjetivo - Comparar performance relativa.\n\nimport yfinance as yf\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Calcular o retorno percentual normalizado\nretornos_normalizados = {}\nfor ticker, df in dados.items():\n    # Condicional anti erro\n    if df.empty:\n        continue\n    df['Retorno_Normalizado'] = df['Close'] / df['Close'].iloc[0]\n    retornos_normalizados[ticker] = df['Retorno_Normalizado']"
   },
   {
     "objectID": "about.html#carteira-com-pesos-iguais",
@@ -698,5 +698,12 @@
     "title": "📊 Análise Financeira com Dados Históricos",
     "section": "Histograma — BBDC4.SA",
     "text": "Histograma — BBDC4.SA"
+  },
+  {
+    "objectID": "about.html#obrigado",
+    "href": "about.html#obrigado",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "Obrigado!",
+    "text": "Obrigado!\n\nAcesse nossos portfólios:\n\n🔗 Cleto Ribas\n🔗 Luis Almeida\n🔗 Paulo Folly"
   }
 ]

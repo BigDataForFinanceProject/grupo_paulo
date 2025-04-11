@@ -177,12 +177,11 @@ for ticker, retornos in log_retornos.items():
 -   Metodologia - Ativos iniciam com valor 1.
 -   Visualização - Gráfico de linha.
 -   Objetivo - Comparar performance relativa.
+
 ```{.python code-line-numbers="1-3|7-9|13-14"}
 import yfinance as yf
 import numpy as np
 import matplotlib.pyplot as plt
-
-# ... (código anterior permanece inalterado)
 
 # Calcular o retorno percentual normalizado
 retornos_normalizados = {}
@@ -200,7 +199,7 @@ for ticker, df in dados.items():
 -   Plotagens Conjuntas
 
 <div style="display: flex; justify-content: center;">
-  <img src="index3_files/figure-revealjs/coloredlines.png" style="width: 100%; max-width: 1000px;" />
+  <img src="index3_files/figure-revealjs/coloredlines.png" style="width: 85%; max-width: 1000px;" />
 </div>
 
 
@@ -373,4 +372,19 @@ beta[1]        0.0000      0.524      0.000      1.000    [ -1.028,  1.028]
 
 <div style="display: flex; justify-content: center;">
   <img src="index3_files/figure-revealjs/garchmen.png" style="width: 100%; max-width: 1000px;" />
+</div>
+
+
+##  Obrigado!
+
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 70vh; text-align: center; font-size: 1.2em;">
+
+Acesse nossos portfólios:
+
+<br>
+
+🔗 <a href="https://cletoribas.github.io/portfolio/" target="_blank">Cleto Ribas</a>  
+🔗 <a href="https://github.com/luisgralmeida2001" target="_blank">Luis Almeida</a>  
+🔗 <a href="https://paulofolly.github.io/portfolio/" target="_blank">Paulo Folly</a>
+
 </div>

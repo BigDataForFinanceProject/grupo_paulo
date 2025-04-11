@@ -364,16 +364,14 @@ Retornos aditivos no tempo e melhor comportamento estatístico.</p>
 <span id="cb4-2"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb4-3"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb4-4"><a></a></span>
-<span id="cb4-5"><a></a><span class="co"># ... (código anterior permanece inalterado)</span></span>
-<span id="cb4-6"><a></a></span>
-<span id="cb4-7"><a></a><span class="co"># Calcular o retorno percentual normalizado</span></span>
-<span id="cb4-8"><a></a>retornos_normalizados <span class="op">=</span> {}</span>
-<span id="cb4-9"><a></a><span class="cf">for</span> ticker, df <span class="kw">in</span> dados.items():</span>
-<span id="cb4-10"><a></a>    <span class="co"># Condicional anti erro</span></span>
-<span id="cb4-11"><a></a>    <span class="cf">if</span> df.empty:</span>
-<span id="cb4-12"><a></a>        <span class="cf">continue</span></span>
-<span id="cb4-13"><a></a>    df[<span class="st">'Retorno_Normalizado'</span>] <span class="op">=</span> df[<span class="st">'Close'</span>] <span class="op">/</span> df[<span class="st">'Close'</span>].iloc[<span class="dv">0</span>]</span>
-<span id="cb4-14"><a></a>    retornos_normalizados[ticker] <span class="op">=</span> df[<span class="st">'Retorno_Normalizado'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-5"><a></a><span class="co"># Calcular o retorno percentual normalizado</span></span>
+<span id="cb4-6"><a></a>retornos_normalizados <span class="op">=</span> {}</span>
+<span id="cb4-7"><a></a><span class="cf">for</span> ticker, df <span class="kw">in</span> dados.items():</span>
+<span id="cb4-8"><a></a>    <span class="co"># Condicional anti erro</span></span>
+<span id="cb4-9"><a></a>    <span class="cf">if</span> df.empty:</span>
+<span id="cb4-10"><a></a>        <span class="cf">continue</span></span>
+<span id="cb4-11"><a></a>    df[<span class="st">'Retorno_Normalizado'</span>] <span class="op">=</span> df[<span class="st">'Close'</span>] <span class="op">/</span> df[<span class="st">'Close'</span>].iloc[<span class="dv">0</span>]</span>
+<span id="cb4-12"><a></a>    retornos_normalizados[ticker] <span class="op">=</span> df[<span class="st">'Retorno_Normalizado'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="valorização-normalizada-1" class="slide level2">
 <h2>Valorização Normalizada</h2>
@@ -381,7 +379,7 @@ Retornos aditivos no tempo e melhor comportamento estatístico.</p>
 <li>Plotagens Conjuntas</li>
 </ul>
 <div style="display: flex; justify-content: center;">
-<p><img src="index3_files/figure-revealjs/coloredlines.png" style="width: 100%; max-width: 1000px;"></p>
+<p><img src="index3_files/figure-revealjs/coloredlines.png" style="width: 85%; max-width: 1000px;"></p>
 </div>
 </section>
 <section id="carteira-com-pesos-iguais" class="slide level2">
@@ -534,6 +532,16 @@ Retornos aditivos no tempo e melhor comportamento estatístico.</p>
 <h2>GARCH MODEL - Mensal</h2>
 <div style="display: flex; justify-content: center;">
 <p><img src="index3_files/figure-revealjs/garchmen.png" style="width: 100%; max-width: 1000px;"></p>
+</div>
+</section>
+<section id="obrigado" class="slide level2">
+<h2>Obrigado!</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 70vh; text-align: center; font-size: 1.2em;">
+<p>Acesse nossos portfólios:</p>
+<p><br></p>
+<p>🔗 <a href="https://cletoribas.github.io/portfolio/" target="_blank">Cleto Ribas</a><br>
+🔗 <a href="https://github.com/luisgralmeida2001" target="_blank">Luis Almeida</a><br>
+🔗 <a href="https://paulofolly.github.io/portfolio/" target="_blank">Paulo Folly</a></p>
 </div>
 
 
