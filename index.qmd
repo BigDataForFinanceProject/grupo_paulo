@@ -36,7 +36,7 @@ Nosso primeiro post sobre a análise de dados está disponível! Nele, apresenta
 
 Nesta seção, analisamos os log-retornos dos ativos financeiros escolhidos. Para visualizar e executar o código completo, acesse o link abaixo:
 
-🔗 [Clique aqui para abrir no Google Colab](https://colab.research.google.com/drive/1IIhvRitSLB5HVT3gll2c5G8vyaIwMY0U#scrollTo=ieuo4NmU37q5)
+🔗 [Clique aqui para abrir no Google Colab]((https://colab.research.google.com/drive/1eCOK_H7uCWLGDoP3oUItuGyctW_en9oJ#scrollTo=09fedee6))
 
 Os gráficos e análises são gerados diretamente no Colab, permitindo interação com os dados de forma dinâmica.
 
