@@ -36,7 +36,60 @@ Nosso primeiro post sobre a análise de dados está disponível! Nele, apresenta
 
 Nesta seção, analisamos os log-retornos dos ativos financeiros escolhidos. Para visualizar e executar o código completo, acesse o link abaixo:
 
-🔗 [Clique aqui para abrir no Google Colab]((https://colab.research.google.com/drive/1eCOK_H7uCWLGDoP3oUItuGyctW_en9oJ#scrollTo=09fedee6))
+🔗 [Clique aqui para abrir no Google Colab](https://colab.research.google.com/drive/1IIhvRitSLB5HVT3gll2c5G8vyaIwMY0U#scrollTo=ieuo4NmU37q5)
 
 Os gráficos e análises são gerados diretamente no Colab, permitindo interação com os dados de forma dinâmica.
 
+# Projeto de Finanças com Aprendizado por Reforço
+
+Este projeto tem como objetivo aplicar técnicas de Aprendizado por Reforço (Reinforcement Learning - RL) para realizar recomendações de compra e venda de ações, utilizando uma carteira personalizada de ativos da bolsa brasileira.
+
+## 💼 Carteira de Ações Utilizada
+
+Os ativos analisados no projeto são:
+
+- VALE3.SA  
+- PETR3.SA  
+- WEGE3.SA  
+- GGBR4.SA  
+- ITUB4.SA  
+- BBDC4.SA  
+
+## 🧠 Modelo Base
+
+Foi utilizado como base o notebook com um Agente de RL baseado em **Q-Learning Estável**. O código original pode ser acessado no link abaixo:
+
+🔗 [Notebook no Google Colab](https://colab.research.google.com/drive/1eCOK_H7uCWLGDoP3oUItuGyctW_en9oJ#scrollTo=09fedee6)
+
+## 🔄 Possíveis Modificações no Projeto
+
+Durante o desenvolvimento, foram levantadas algumas sugestões de customização:
+
+- **Troca do Agente de RL:**  
+  Alterar o agente Q-Learning Estável por outro modelo, como DQN, SARSA ou Actor-Critic, por exemplo.
+  
+- **Ajuste de Parâmetros:**  
+  Caso a troca do agente não seja possível, ajustar hiperparâmetros como taxa de aprendizado, fator de desconto, política de exploração, entre outros, para melhorar a performance do modelo.
+
+- **Previsão com Dados Futuros:**  
+  O modelo atual foi treinado com dados históricos. Recomenda-se adaptar o modelo para gerar **forecast** e realizar decisões com base em projeções futuras.
+
+## 📈 Resultados Esperados
+
+Ao final do projeto, cada grupo deverá gerar:
+
+- **Gráficos com Sinais de Compra e Venda** para cada ativo da carteira.
+- **Tabela Resumo** contendo as recomendações geradas pelo modelo de RL.
+
+## 📌 Etapas do Projeto
+
+Cada grupo deverá apresentar:
+
+1. Em que fase do projeto se encontra;
+2. Quais desafios estão enfrentando;
+3. Quais decisões foram tomadas até o momento sobre o modelo e a estratégia de investimento;
+4. Resultados parciais obtidos.
+
+---
+
+Este documento será atualizado conforme o projeto avança e novos resultados forem sendo obtidos.

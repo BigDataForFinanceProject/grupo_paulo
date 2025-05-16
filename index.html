@@ -120,6 +120,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#publicação-do-projeto" id="toc-publicação-do-projeto" class="nav-link" data-scroll-target="#publicação-do-projeto">📝 Publicação do Projeto</a></li>
   <li><a href="#análise-de-log-retornos" id="toc-análise-de-log-retornos" class="nav-link" data-scroll-target="#análise-de-log-retornos">📈 Análise de Log-Retornos</a></li>
   </ul></li>
+  <li><a href="#projeto-de-finanças-com-aprendizado-por-reforço" id="toc-projeto-de-finanças-com-aprendizado-por-reforço" class="nav-link" data-scroll-target="#projeto-de-finanças-com-aprendizado-por-reforço">Projeto de Finanças com Aprendizado por Reforço</a>
+  <ul class="collapse">
+  <li><a href="#carteira-de-ações-utilizada" id="toc-carteira-de-ações-utilizada" class="nav-link" data-scroll-target="#carteira-de-ações-utilizada">💼 Carteira de Ações Utilizada</a></li>
+  <li><a href="#modelo-base" id="toc-modelo-base" class="nav-link" data-scroll-target="#modelo-base">🧠 Modelo Base</a></li>
+  <li><a href="#possíveis-modificações-no-projeto" id="toc-possíveis-modificações-no-projeto" class="nav-link" data-scroll-target="#possíveis-modificações-no-projeto">🔄 Possíveis Modificações no Projeto</a></li>
+  <li><a href="#resultados-esperados" id="toc-resultados-esperados" class="nav-link" data-scroll-target="#resultados-esperados">📈 Resultados Esperados</a></li>
+  <li><a href="#etapas-do-projeto" id="toc-etapas-do-projeto" class="nav-link" data-scroll-target="#etapas-do-projeto">📌 Etapas do Projeto</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -184,6 +192,64 @@ ul.task-list li input[type="checkbox"] {
 <p>Nesta seção, analisamos os log-retornos dos ativos financeiros escolhidos. Para visualizar e executar o código completo, acesse o link abaixo:</p>
 <p>🔗 <a href="https://colab.research.google.com/drive/1IIhvRitSLB5HVT3gll2c5G8vyaIwMY0U#scrollTo=ieuo4NmU37q5">Clique aqui para abrir no Google Colab</a></p>
 <p>Os gráficos e análises são gerados diretamente no Colab, permitindo interação com os dados de forma dinâmica.</p>
+</section>
+</section>
+<section id="projeto-de-finanças-com-aprendizado-por-reforço" class="level1">
+<h1>Projeto de Finanças com Aprendizado por Reforço</h1>
+<p>Este projeto tem como objetivo aplicar técnicas de Aprendizado por Reforço (Reinforcement Learning - RL) para realizar recomendações de compra e venda de ações, utilizando uma carteira personalizada de ativos da bolsa brasileira.</p>
+<section id="carteira-de-ações-utilizada" class="level2">
+<h2 class="anchored" data-anchor-id="carteira-de-ações-utilizada">💼 Carteira de Ações Utilizada</h2>
+<p>Os ativos analisados no projeto são:</p>
+<ul>
+<li>VALE3.SA<br>
+</li>
+<li>PETR3.SA<br>
+</li>
+<li>WEGE3.SA<br>
+</li>
+<li>GGBR4.SA<br>
+</li>
+<li>ITUB4.SA<br>
+</li>
+<li>BBDC4.SA</li>
+</ul>
+</section>
+<section id="modelo-base" class="level2">
+<h2 class="anchored" data-anchor-id="modelo-base">🧠 Modelo Base</h2>
+<p>Foi utilizado como base o notebook com um Agente de RL baseado em <strong>Q-Learning Estável</strong>. O código original pode ser acessado no link abaixo:</p>
+<p>🔗 <a href="https://colab.research.google.com/drive/1eCOK_H7uCWLGDoP3oUItuGyctW_en9oJ#scrollTo=09fedee6">Notebook no Google Colab</a></p>
+</section>
+<section id="possíveis-modificações-no-projeto" class="level2">
+<h2 class="anchored" data-anchor-id="possíveis-modificações-no-projeto">🔄 Possíveis Modificações no Projeto</h2>
+<p>Durante o desenvolvimento, foram levantadas algumas sugestões de customização:</p>
+<ul>
+<li><p><strong>Troca do Agente de RL:</strong><br>
+Alterar o agente Q-Learning Estável por outro modelo, como DQN, SARSA ou Actor-Critic, por exemplo.</p></li>
+<li><p><strong>Ajuste de Parâmetros:</strong><br>
+Caso a troca do agente não seja possível, ajustar hiperparâmetros como taxa de aprendizado, fator de desconto, política de exploração, entre outros, para melhorar a performance do modelo.</p></li>
+<li><p><strong>Previsão com Dados Futuros:</strong><br>
+O modelo atual foi treinado com dados históricos. Recomenda-se adaptar o modelo para gerar <strong>forecast</strong> e realizar decisões com base em projeções futuras.</p></li>
+</ul>
+</section>
+<section id="resultados-esperados" class="level2">
+<h2 class="anchored" data-anchor-id="resultados-esperados">📈 Resultados Esperados</h2>
+<p>Ao final do projeto, cada grupo deverá gerar:</p>
+<ul>
+<li><strong>Gráficos com Sinais de Compra e Venda</strong> para cada ativo da carteira.</li>
+<li><strong>Tabela Resumo</strong> contendo as recomendações geradas pelo modelo de RL.</li>
+</ul>
+</section>
+<section id="etapas-do-projeto" class="level2">
+<h2 class="anchored" data-anchor-id="etapas-do-projeto">📌 Etapas do Projeto</h2>
+<p>Cada grupo deverá apresentar:</p>
+<ol type="1">
+<li>Em que fase do projeto se encontra;</li>
+<li>Quais desafios estão enfrentando;</li>
+<li>Quais decisões foram tomadas até o momento sobre o modelo e a estratégia de investimento;</li>
+<li>Resultados parciais obtidos.</li>
+</ol>
+<hr>
+<p>Este documento será atualizado conforme o projeto avança e novos resultados forem sendo obtidos.</p>
 
 
 </section>

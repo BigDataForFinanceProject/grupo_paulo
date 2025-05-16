@@ -705,5 +705,40 @@
     "title": "📊 Análise Financeira com Dados Históricos",
     "section": "Obrigado!",
     "text": "Obrigado!\n\nAcesse nossos portfólios:\n\n🔗 Cleto Ribas\n🔗 Luis Almeida\n🔗 Paulo Folly"
+  },
+  {
+    "objectID": "index.html#carteira-de-ações-utilizada",
+    "href": "index.html#carteira-de-ações-utilizada",
+    "title": "Análise de Dados Financeiros",
+    "section": "💼 Carteira de Ações Utilizada",
+    "text": "💼 Carteira de Ações Utilizada\nOs ativos analisados no projeto são:\n\nVALE3.SA\n\nPETR3.SA\n\nWEGE3.SA\n\nGGBR4.SA\n\nITUB4.SA\n\nBBDC4.SA"
+  },
+  {
+    "objectID": "index.html#modelo-base",
+    "href": "index.html#modelo-base",
+    "title": "Análise de Dados Financeiros",
+    "section": "🧠 Modelo Base",
+    "text": "🧠 Modelo Base\nFoi utilizado como base o notebook com um Agente de RL baseado em Q-Learning Estável. O código original pode ser acessado no link abaixo:\n🔗 Notebook no Google Colab"
+  },
+  {
+    "objectID": "index.html#possíveis-modificações-no-projeto",
+    "href": "index.html#possíveis-modificações-no-projeto",
+    "title": "Análise de Dados Financeiros",
+    "section": "🔄 Possíveis Modificações no Projeto",
+    "text": "🔄 Possíveis Modificações no Projeto\nDurante o desenvolvimento, foram levantadas algumas sugestões de customização:\n\nTroca do Agente de RL:\nAlterar o agente Q-Learning Estável por outro modelo, como DQN, SARSA ou Actor-Critic, por exemplo.\nAjuste de Parâmetros:\nCaso a troca do agente não seja possível, ajustar hiperparâmetros como taxa de aprendizado, fator de desconto, política de exploração, entre outros, para melhorar a performance do modelo.\nPrevisão com Dados Futuros:\nO modelo atual foi treinado com dados históricos. Recomenda-se adaptar o modelo para gerar forecast e realizar decisões com base em projeções futuras."
+  },
+  {
+    "objectID": "index.html#resultados-esperados",
+    "href": "index.html#resultados-esperados",
+    "title": "Análise de Dados Financeiros",
+    "section": "📈 Resultados Esperados",
+    "text": "📈 Resultados Esperados\nAo final do projeto, cada grupo deverá gerar:\n\nGráficos com Sinais de Compra e Venda para cada ativo da carteira.\nTabela Resumo contendo as recomendações geradas pelo modelo de RL."
+  },
+  {
+    "objectID": "index.html#etapas-do-projeto",
+    "href": "index.html#etapas-do-projeto",
+    "title": "Análise de Dados Financeiros",
+    "section": "📌 Etapas do Projeto",
+    "text": "📌 Etapas do Projeto\nCada grupo deverá apresentar:\n\nEm que fase do projeto se encontra;\nQuais desafios estão enfrentando;\nQuais decisões foram tomadas até o momento sobre o modelo e a estratégia de investimento;\nResultados parciais obtidos.\n\n\nEste documento será atualizado conforme o projeto avança e novos resultados forem sendo obtidos."
   }
 ]
