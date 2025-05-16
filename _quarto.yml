@@ -8,7 +8,7 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - index3.qmd
+      - about.qmd
 
 format:
   html:
