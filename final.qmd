@@ -101,7 +101,7 @@ jupyter: python3
 
 ---
 
-## 💡 Conclusões
+## 💡 Conclusões 💡
 
 - Estratégias simples, como pesos iguais, podem gerar bons resultados em horizontes curtos.
 - O rebalanceamento periódico contribui para manter a disciplina de alocação e reduzir o risco não sistemático.
