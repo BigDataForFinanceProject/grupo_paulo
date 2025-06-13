@@ -1,0 +1,127 @@
+---
+title: "📊 Análise de Carteiras Financeiras"
+subtitle: "Construção, Alocação, Rebalanceamento e Otimização"
+format:
+  revealjs:
+    slide-number: true
+    preview-links: auto
+    css: styles.css
+    footer: "Projeto Colaborativo — Big Data for Finance"
+    logo: images/quarto.png
+    chalkboard: false
+    theme: simple
+jupyter: python3
+---
+
+## 🎯 Objetivos do Projeto
+
+- Construir e avaliar carteiras financeiras com diferentes estratégias.
+- Simular pesos estáticos e rebalanceamentos periódicos.
+- Aplicar otimizações baseadas em risco e retorno.
+- Comparar com benchmarks como IBOV, S&P 500 e SELIC.
+
+---
+
+## 🧱 Estrutura Geral da Análise
+
+1. **Importação de bibliotecas e coleta de dados**
+2. **Limpeza e normalização das séries históricas**
+3. **Simulação de carteiras (pesos iguais, Ibovespa, otimizada)**
+4. **Rebalanceamento semanal das alocações**
+5. **Forecast de retornos com média móvel**
+6. **Otimização baseada em métricas de risco-retorno**
+7. **Visualização e comparação dos desempenhos**
+
+---
+
+## 📥 Importação e Normalização
+
+- Coleta de dados via `yfinance` (ações brasileiras e índices globais).
+- Normalização dos preços:  
+  $$ P_{\text{normalizado}} = \frac{P_t}{P_0} $$  
+  Permite comparação direta entre ativos de diferentes magnitudes.
+
+---
+
+## 💼 Estratégias de Alocação de Carteira
+
+- **Pesos Iguais**: alocação simétrica entre todos os ativos.
+- **Pesos Ibovespa**: simulação com base na composição percentual do índice.
+- **Carteira MVP (via Streamlit)**: alocação manual com salvamento em banco de dados.
+
+---
+
+## 🔁 Estratégias de Rebalanceamento
+
+- Rebalanceamento **semanal** das alocações com base nos pesos-alvo.
+- Ajustes automáticos considerando variações de mercado.
+- Inclusão de fluxo de caixa (aportes/retiradas) na lógica de redistribuição.
+
+---
+
+## ⚙️ Forecast e Otimização de Carteira
+
+- Previsão de retorno com base em **média móvel ajustada**.
+- Otimização utilizando métricas de risco-retorno, com foco em:
+
+  - **Maximização do Sharpe Ratio**  
+  - **Restrições**: pesos positivos, soma igual a 100%, limites de alocação.
+
+---
+
+## 🧮 Modelos Estatísticos de Volatilidade
+
+- Estimativa da volatilidade condicional com modelo **GARCH(1,1)**.
+- Aplicação com janelas semanais para maior sensibilidade às variações.
+- Indicador fundamental para decisões de rebalanceamento e hedge.
+
+---
+
+## 🧠 MVP Interativo com Streamlit
+
+- Interface intuitiva para configurar e testar carteiras.
+- Banco de dados local (SQLite) para persistência de configurações e rebalanceamentos.
+- Atualização automatizada dos preços com cache de 24h.
+- Métricas exibidas:
+  - Valor total
+  - Rendimento acumulado
+  - Distribuição por classe de ativo
+  - Evolução histórica
+
+---
+
+## 🔎 Indicadores Utilizados
+
+- **Log-retorno diário**:  
+  $$ r_t = \ln \left(\frac{P_t}{P_{t-1}}\right) $$
+- **Retorno acumulado**
+- **Desvio padrão e variância**
+- **Sharpe Ratio**
+- **Rendimento mensal** (via `resample('M')`)
+
+---
+
+## 💡 Conclusões
+
+- Estratégias simples, como pesos iguais, podem gerar bons resultados em horizontes curtos.
+- O rebalanceamento periódico contribui para manter a disciplina de alocação e reduzir o risco não sistemático.
+- A modelagem de risco e a previsão de retornos são ferramentas complementares para tomada de decisão.
+- Ferramentas como Streamlit tornam a análise acessível, personalizável e interativa.
+
+---
+
+## 🔗 Acesso aos Portfólios
+
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 1.2em;">
+🔗 [Cleto Ribas](https://cletoribas.github.io/portfolio/)  
+🔗 [Luis Almeida](https://github.com/luisgralmeida2001)  
+🔗 [Paulo Folly](https://paulofolly.github.io/portfolio/)
+</div>
+
+---
+
+## 📎 Link para o Google Colab
+
+[Acesse aqui o notebook no Colab](https://colab.research.google.com/drive/1QjhNKIkupMFIRYKzW6vIyQ6IvlRZn9xd?usp=sharing)
+
+---

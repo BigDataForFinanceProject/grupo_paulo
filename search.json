@@ -740,5 +740,285 @@
     "title": "Análise de Dados Financeiros",
     "section": "📌 Etapas do Projeto",
     "text": "📌 Etapas do Projeto\nCada grupo deverá apresentar:\n\nEm que fase do projeto se encontra;\nQuais desafios estão enfrentando;\nQuais decisões foram tomadas até o momento sobre o modelo e a estratégia de investimento;\nResultados parciais obtidos.\n\n\nEste documento será atualizado conforme o projeto avança e novos resultados forem sendo obtidos."
+  },
+  {
+    "objectID": "final.html#objetivo-da-análise",
+    "href": "final.html#objetivo-da-análise",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "Objetivo da Análise",
+    "text": "Objetivo da Análise\n\n📈 Comportamento Histórico\nAnalisar o desempenho de ações brasileiras ao longo do tempo.\n💰 Retornos\nCalcular e comparar os retornos acumulados e médios.\n📊 Alocações de Carteira\nSimular diferentes pesos para compor carteiras diversificadas.\n🔁 Rebalanceamento\nAvaliar o impacto do rebalanceamento mensal nos resultados."
+  },
+  {
+    "objectID": "final.html#importação-de-dados",
+    "href": "final.html#importação-de-dados",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "Importação de Dados",
+    "text": "Importação de Dados\n\nyfinance - Obtenção de dados.\nnumpy e matplotlib - Cálculo e visualização.\n\n# Definição dos Ativos (em Python)\nativos = [\"VALE3.SA\", \"PETR3.SA\", \"WEGE3.SA\", \"GGBR4.SA\", \"ITUB4.SA\", \"BBDC4.SA\"]\n\n# Baixar dados históricos de preços\ndados = {}\nfor ticker in ativos:\n    dados[ticker] = yf.download(ticker, start='2020-01-01', end='2025-04-09')\n\n# Calcular log-retornos\nlog_retornos = {}\nfor ticker, df in dados.items():\n    log_retornos[ticker] = np.log(df['Close'] / df['Close'].shift(1))"
+  },
+  {
+    "objectID": "final.html#histogramas",
+    "href": "final.html#histogramas",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "Histogramas",
+    "text": "Histogramas\n# Plotar histogramas dos log-retornos\ndef plotar_histogramas(log_retornos):\n    for ticker, retornos in log_retornos.items():\n        plt.figure(figsize=(10, 6))\n        plt.hist(retornos.dropna(), bins=50, alpha=0.75, color='blue', edgecolor='black')\n        plt.title(f'Histograma de Log-Retornos para {ticker}')\n        plt.xlabel('Log-Retornos')\n        plt.ylabel('Frequência')\n        plt.grid(True)\n        plt.show()\n\n\nplotar_histogramas(log_retornos)"
+  },
+  {
+    "objectID": "final.html#log-retornos",
+    "href": "final.html#log-retornos",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "📉 Log-Retornos",
+    "text": "📉 Log-Retornos\n\n🔢 Fórmula:\nLog-Retorno = ln(Pt / Pt-1)\n\n🧠 Justificativa:\nRetornos aditivos no tempo e melhor comportamento estatístico."
+  },
+  {
+    "objectID": "final.html#histograma-vale3.sa",
+    "href": "final.html#histograma-vale3.sa",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "Histograma — VALE3.SA",
+    "text": "Histograma — VALE3.SA"
+  },
+  {
+    "objectID": "final.html#histograma-petr3.sa",
+    "href": "final.html#histograma-petr3.sa",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "Histograma — PETR3.SA",
+    "text": "Histograma — PETR3.SA"
+  },
+  {
+    "objectID": "final.html#histograma-wege3.sa",
+    "href": "final.html#histograma-wege3.sa",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "Histograma — WEGE3.SA",
+    "text": "Histograma — WEGE3.SA"
+  },
+  {
+    "objectID": "final.html#histograma-ggbr4.sa",
+    "href": "final.html#histograma-ggbr4.sa",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "Histograma — GGBR4.SA",
+    "text": "Histograma — GGBR4.SA"
+  },
+  {
+    "objectID": "final.html#histograma-itub",
+    "href": "final.html#histograma-itub",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "Histograma — ITUB",
+    "text": "Histograma — ITUB"
+  },
+  {
+    "objectID": "final.html#histograma-bbdc4.sa",
+    "href": "final.html#histograma-bbdc4.sa",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "Histograma — BBDC4.SA",
+    "text": "Histograma — BBDC4.SA"
+  },
+  {
+    "objectID": "final.html#estatísticas-dos-log-retornos",
+    "href": "final.html#estatísticas-dos-log-retornos",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "📊 Estatísticas dos Log-Retornos",
+    "text": "📊 Estatísticas dos Log-Retornos\n\n\n\nAtivo\nMédia\nVariância\n\n\n\n\nVALE3.SA\n0.000286\n0.000538\n\n\nPETR3.SA\n0.000872\n0.000863\n\n\nWEGE3.SA\n0.000759\n0.000568\n\n\nGGBR4.SA\n0.000160\n0.000696\n\n\nITUB\n-0.000142\n0.000679\n\n\nBBDC4.SA\n-0.000421\n0.000547"
+  },
+  {
+    "objectID": "final.html#estatísticas-descritivas",
+    "href": "final.html#estatísticas-descritivas",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "Estatísticas Descritivas",
+    "text": "Estatísticas Descritivas\n\nMédia - Log-retornos.\nVariância - Log-retornos.\nObjetivo - Risco e retorno individual.\n\nfor ticker, retornos in log_retornos.items():\n    media = retornos.mean()\n    variancia = retornos.var()\n    print(f\"Análise para {ticker}:\")\n    print(f\"  Média dos log-retornos: {media.iloc[0]:.6f}\") # Access the first element of the Series\n    print(f\"  Variância dos log-retornos: {variancia.iloc[0]:.6f}\\n\") # Access the first element of the Series"
+  },
+  {
+    "objectID": "final.html#valorização-normalizada",
+    "href": "final.html#valorização-normalizada",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "Valorização Normalizada",
+    "text": "Valorização Normalizada\n\nMetodologia - Ativos iniciam com valor 1.\nVisualização - Gráfico de linha.\nObjetivo - Comparar performance relativa.\n\nimport yfinance as yf\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Calcular o retorno percentual normalizado\nretornos_normalizados = {}\nfor ticker, df in dados.items():\n    # Condicional anti erro\n    if df.empty:\n        continue\n    df['Retorno_Normalizado'] = df['Close'] / df['Close'].iloc[0]\n    retornos_normalizados[ticker] = df['Retorno_Normalizado']"
+  },
+  {
+    "objectID": "final.html#valorização-normalizada-1",
+    "href": "final.html#valorização-normalizada-1",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "Valorização Normalizada",
+    "text": "Valorização Normalizada\n\nPlotagens Conjuntas"
+  },
+  {
+    "objectID": "final.html#carteira-com-pesos-iguais",
+    "href": "final.html#carteira-com-pesos-iguais",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "Carteira com Pesos Iguais",
+    "text": "Carteira com Pesos Iguais"
+  },
+  {
+    "objectID": "final.html#carteira-com-pesos-do-ibovespa",
+    "href": "final.html#carteira-com-pesos-do-ibovespa",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "Carteira com Pesos do Ibovespa",
+    "text": "Carteira com Pesos do Ibovespa\n\nComposição - Pesos simulados (replicar índice).\nCálculo - Valorização similar à anterior."
+  },
+  {
+    "objectID": "final.html#valorização-da-carteira-rebalanceamento-mensal",
+    "href": "final.html#valorização-da-carteira-rebalanceamento-mensal",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "Valorização da Carteira (Rebalanceamento Mensal)",
+    "text": "Valorização da Carteira (Rebalanceamento Mensal)\n\nVisualização - Gráfico de valorização."
+  },
+  {
+    "objectID": "final.html#valorização-da-carteira-rebalanceamento-ibovespa",
+    "href": "final.html#valorização-da-carteira-rebalanceamento-ibovespa",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "Valorização da Carteira (Rebalanceamento Ibovespa)",
+    "text": "Valorização da Carteira (Rebalanceamento Ibovespa)\n\nVisualização - Gráfico de valorização."
+  },
+  {
+    "objectID": "final.html#análise-de-volatilidade",
+    "href": "final.html#análise-de-volatilidade",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "Análise de Volatilidade",
+    "text": "Análise de Volatilidade\nOptimization terminated successfully    (Exit mode 0)\n            Current function value: -3665.223912665885\n            Iterations: 6\n            Function evaluations: 17\n            Gradient evaluations: 2\n                     Constant Mean - GARCH Model Results\n==============================================================================\nDep. Variable:                   None   R-squared:                       0.000\nMean Model:             Constant Mean   Adj. R-squared:                  0.000\nVol Model:                      GARCH   Log-Likelihood:                3665.22\nDistribution:                  Normal   AIC:                          -7322.45\nMethod:            Maximum Likelihood   BIC:                          -7301.73\n                                        No. Observations:                 1311\nDate:                Fri, Apr 11 2025   Df Residuals:                     1310\nTime:                        02:23:12   Df Model:                            1\n                                 Mean Model\n============================================================================\n                 coef    std err          t      P&gt;|t|      95.0% Conf. Int.\n----------------------------------------------------------------------------\nmu         6.9203e-04  1.684e-05     41.095      0.000 [6.590e-04,7.250e-04]\n                              Volatility Model\n============================================================================\n                 coef    std err          t      P&gt;|t|      95.0% Conf. Int.\n----------------------------------------------------------------------------\nomega      6.9543e-06  5.713e-11  1.217e+05      0.000 [6.954e-06,6.954e-06]\nalpha[1]       0.1000  2.665e-02      3.752  1.752e-04   [4.777e-02,  0.152]\nbeta[1]        0.8800  1.940e-02     45.363      0.000     [  0.842,  0.918]\n============================================================================"
+  },
+  {
+    "objectID": "final.html#análise-de-volatilidade-plotagem",
+    "href": "final.html#análise-de-volatilidade-plotagem",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "Análise de Volatilidade (Plotagem)",
+    "text": "Análise de Volatilidade (Plotagem)"
+  },
+  {
+    "objectID": "final.html#sharp-ratio",
+    "href": "final.html#sharp-ratio",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "Sharp Ratio",
+    "text": "Sharp Ratio"
+  },
+  {
+    "objectID": "final.html#rebalanceamento-semanal",
+    "href": "final.html#rebalanceamento-semanal",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "Rebalanceamento Semanal",
+    "text": "Rebalanceamento Semanal"
+  },
+  {
+    "objectID": "final.html#análise-de-volatilidade-1",
+    "href": "final.html#análise-de-volatilidade-1",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "Análise de Volatilidade",
+    "text": "Análise de Volatilidade\n\nGARCH MODEL - Semanal\n\n==============================================================================\nDep. Variable:                   None   R-squared:                       0.000\nMean Model:             Constant Mean   Adj. R-squared:                  0.000\nVol Model:                      GARCH   Log-Likelihood:               -5512.57\nDistribution:                  Normal   AIC:                           11033.1\nMethod:            Maximum Likelihood   BIC:                           11053.7\n                                        No. Observations:                 1276\nDate:                Fri, Apr 11 2025   Df Residuals:                     1275\nTime:                        02:34:39   Df Model:                            1\n                                 Mean Model\n============================================================================\n                 coef    std err          t      P&gt;|t|      95.0% Conf. Int.\n----------------------------------------------------------------------------\nmu           135.9392      0.734    185.150      0.000 [1.345e+02,1.374e+02]\n                              Volatility Model\n===========================================================================\n                 coef    std err          t      P&gt;|t|     95.0% Conf. Int.\n---------------------------------------------------------------------------\nomega          2.9558      2.824      1.047      0.295    [ -2.579,  8.491]\nalpha[1]       0.9991      0.529      1.890  5.870e-02 [-3.673e-02,  2.035]\nbeta[1]        0.0000      0.524      0.000      1.000    [ -1.028,  1.028]\n==========================================================================="
+  },
+  {
+    "objectID": "final.html#garch-model",
+    "href": "final.html#garch-model",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "GARCH MODEL",
+    "text": "GARCH MODEL"
+  },
+  {
+    "objectID": "final.html#análise-de-volatilidade-2",
+    "href": "final.html#análise-de-volatilidade-2",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "Análise de Volatilidade",
+    "text": "Análise de Volatilidade\n\nGARCH MODEL - Mensal\n\n==============================================================================\nDep. Variable:                   None   R-squared:                       0.000\nMean Model:             Constant Mean   Adj. R-squared:                  0.000\nVol Model:                      GARCH   Log-Likelihood:                3630.17\nDistribution:                  Normal   AIC:                          -7252.33\nMethod:            Maximum Likelihood   BIC:                          -7231.66\n                                        No. Observations:                 1298\nDate:                Fri, Apr 11 2025   Df Residuals:                     1297\nTime:                        02:04:29   Df Model:                            1\n                                 Mean Model\n============================================================================\n                 coef    std err          t      P&gt;|t|      95.0% Conf. Int.\n----------------------------------------------------------------------------\nmu         7.5353e-04  6.558e-06    114.902      0.000 [7.407e-04,7.664e-04]\n                              Volatility Model\n============================================================================\n                 coef    std err          t      P&gt;|t|      95.0% Conf. Int.\n----------------------------------------------------------------------------\nomega      6.9715e-06  6.537e-11  1.066e+05      0.000 [6.971e-06,6.972e-06]\nalpha[1]       0.1000  2.718e-02      3.679  2.343e-04   [4.672e-02,  0.153]\nbeta[1]        0.8800  1.957e-02     44.963      0.000     [  0.842,  0.918]\n============================================================================"
+  },
+  {
+    "objectID": "final.html#garch-model---mensal",
+    "href": "final.html#garch-model---mensal",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "GARCH MODEL - Mensal",
+    "text": "GARCH MODEL - Mensal"
+  },
+  {
+    "objectID": "final.html#obrigado",
+    "href": "final.html#obrigado",
+    "title": "📊 Análise Financeira com Dados Históricos",
+    "section": "Obrigado!",
+    "text": "Obrigado!\n\nAcesse nossos portfólios:\n\n🔗 Cleto Ribas\n🔗 Luis Almeida\n🔗 Paulo Folly"
+  },
+  {
+    "objectID": "final.html#objetivos-do-projeto",
+    "href": "final.html#objetivos-do-projeto",
+    "title": "📊 Análise de Carteiras Financeiras",
+    "section": "🎯 Objetivos do Projeto",
+    "text": "🎯 Objetivos do Projeto\n\nConstruir e avaliar carteiras financeiras com diferentes estratégias.\nSimular pesos estáticos e rebalanceamentos periódicos.\nAplicar otimizações baseadas em risco e retorno.\nComparar com benchmarks como IBOV, S&P 500 e SELIC."
+  },
+  {
+    "objectID": "final.html#estrutura-geral-da-análise",
+    "href": "final.html#estrutura-geral-da-análise",
+    "title": "📊 Análise de Carteiras Financeiras",
+    "section": "🧱 Estrutura Geral da Análise",
+    "text": "🧱 Estrutura Geral da Análise\n\nImportação de bibliotecas e coleta de dados\nLimpeza e normalização das séries históricas\nSimulação de carteiras (pesos iguais, Ibovespa, otimizada)\nRebalanceamento semanal das alocações\nForecast de retornos com média móvel\nOtimização baseada em métricas de risco-retorno\nVisualização e comparação dos desempenhos"
+  },
+  {
+    "objectID": "final.html#importação-e-normalização",
+    "href": "final.html#importação-e-normalização",
+    "title": "📊 Análise de Carteiras Financeiras",
+    "section": "📥 Importação e Normalização",
+    "text": "📥 Importação e Normalização\n\nColeta de dados via yfinance (ações brasileiras e índices globais).\nNormalização dos preços:\n\\[ P_{\\text{normalizado}} = \\frac{P_t}{P_0} \\]\nPermite comparação direta entre ativos de diferentes magnitudes."
+  },
+  {
+    "objectID": "final.html#estratégias-de-alocação-de-carteira",
+    "href": "final.html#estratégias-de-alocação-de-carteira",
+    "title": "📊 Análise de Carteiras Financeiras",
+    "section": "💼 Estratégias de Alocação de Carteira",
+    "text": "💼 Estratégias de Alocação de Carteira\n\nPesos Iguais: alocação simétrica entre todos os ativos.\nPesos Ibovespa: simulação com base na composição percentual do índice.\nCarteira MVP (via Streamlit): alocação manual com salvamento em banco de dados."
+  },
+  {
+    "objectID": "final.html#estratégias-de-rebalanceamento",
+    "href": "final.html#estratégias-de-rebalanceamento",
+    "title": "📊 Análise de Carteiras Financeiras",
+    "section": "🔁 Estratégias de Rebalanceamento",
+    "text": "🔁 Estratégias de Rebalanceamento\n\nRebalanceamento semanal das alocações com base nos pesos-alvo.\nAjustes automáticos considerando variações de mercado.\nInclusão de fluxo de caixa (aportes/retiradas) na lógica de redistribuição."
+  },
+  {
+    "objectID": "final.html#otimização-de-carteira",
+    "href": "final.html#otimização-de-carteira",
+    "title": "📊 Análise de Carteiras Financeiras",
+    "section": "⚙️ Otimização de Carteira",
+    "text": "⚙️ Otimização de Carteira\n\nUtilização da função objetivo:\n\\[ \\text{Max Sharpe Ratio} = \\frac{\\mathbb{E}[R_p] - R_f}{\\sigma_p} \\]\nRestrições aplicadas:\n\nPesos somando 100%.\nSem posições vendidas (short selling).\nLimite mínimo/máximo de alocação por ativo."
+  },
+  {
+    "objectID": "final.html#modelos-estatísticos-de-volatilidade",
+    "href": "final.html#modelos-estatísticos-de-volatilidade",
+    "title": "📊 Análise de Carteiras Financeiras",
+    "section": "🧮 Modelos Estatísticos de Volatilidade",
+    "text": "🧮 Modelos Estatísticos de Volatilidade\n\nEstimativa da volatilidade condicional com modelo GARCH(1,1).\nAplicação com janelas semanais para maior sensibilidade às variações.\nIndicador fundamental para decisões de rebalanceamento e hedge."
+  },
+  {
+    "objectID": "final.html#mvp-interativo-com-streamlit",
+    "href": "final.html#mvp-interativo-com-streamlit",
+    "title": "📊 Análise de Carteiras Financeiras",
+    "section": "🧠 MVP Interativo com Streamlit",
+    "text": "🧠 MVP Interativo com Streamlit\n\nInterface intuitiva para configurar e testar carteiras.\nBanco de dados local (SQLite) para persistência de configurações e rebalanceamentos.\nAtualização automatizada dos preços com cache de 24h.\nMétricas exibidas:\n\nValor total\nRendimento acumulado\nDistribuição por classe de ativo\nEvolução histórica"
+  },
+  {
+    "objectID": "final.html#indicadores-utilizados",
+    "href": "final.html#indicadores-utilizados",
+    "title": "📊 Análise de Carteiras Financeiras",
+    "section": "🔎 Indicadores Utilizados",
+    "text": "🔎 Indicadores Utilizados\n\nLog-retorno diário:\n\\[ r_t = \\ln \\left(\\frac{P_t}{P_{t-1}}\\right) \\]\nRetorno acumulado\nDesvio padrão e variância\nSharpe Ratio\nRendimento mensal (via resample('M'))"
+  },
+  {
+    "objectID": "final.html#conclusões",
+    "href": "final.html#conclusões",
+    "title": "📊 Análise de Carteiras Financeiras",
+    "section": "💡 Conclusões",
+    "text": "💡 Conclusões\n\nEstratégias simples, como pesos iguais, podem gerar bons resultados em horizontes curtos.\nO rebalanceamento periódico contribui para manter a disciplina de alocação e reduzir o risco não sistemático.\nA modelagem de risco e a previsão de retornos são ferramentas complementares para tomada de decisão.\nFerramentas como Streamlit tornam a análise acessível, personalizável e interativa."
+  },
+  {
+    "objectID": "final.html#acesso-aos-portfólios",
+    "href": "final.html#acesso-aos-portfólios",
+    "title": "📊 Análise de Carteiras Financeiras",
+    "section": "🔗 Acesso aos Portfólios",
+    "text": "🔗 Acesso aos Portfólios\n\n🔗 Cleto Ribas\n🔗 Luis Almeida\n🔗 Paulo Folly"
+  },
+  {
+    "objectID": "final.html#link-para-o-google-colab",
+    "href": "final.html#link-para-o-google-colab",
+    "title": "📊 Análise de Carteiras Financeiras",
+    "section": "📎 Link para o Google Colab",
+    "text": "📎 Link para o Google Colab\nAcesse aqui o notebook no Colab"
+  },
+  {
+    "objectID": "final.html#forecast-e-otimização-de-carteira",
+    "href": "final.html#forecast-e-otimização-de-carteira",
+    "title": "📊 Análise de Carteiras Financeiras",
+    "section": "⚙️ Forecast e Otimização de Carteira",
+    "text": "⚙️ Forecast e Otimização de Carteira\n\nPrevisão de retorno com base em média móvel ajustada.\nOtimização utilizando métricas de risco-retorno, com foco em:\n\nMaximização do Sharpe Ratio\n\nRestrições: pesos positivos, soma igual a 100%, limites de alocação."
   }
 ]
