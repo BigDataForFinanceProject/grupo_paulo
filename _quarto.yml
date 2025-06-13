@@ -9,6 +9,8 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      - href: final.qmd
+        text: Apresentação Final
 
 format:
   html:
