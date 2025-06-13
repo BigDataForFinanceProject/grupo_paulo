@@ -119,9 +119,3 @@ jupyter: python3
 </div>
 
 ---
-
-## 📎 Link para o Google Colab
-
-[Acesse aqui o notebook no Colab](https://colab.research.google.com/drive/1QjhNKIkupMFIRYKzW6vIyQ6IvlRZn9xd?usp=sharing)
-
----
